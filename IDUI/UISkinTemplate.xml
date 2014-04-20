@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window>
+    <VerticalLayout width="400" height="400" bkcolor="#FF00FF00" bkcolor2="#0000FFFF">
+        <HorizontalLayout height="30" bkcolor="#FF0000FF" bkcolor2="#0000FFFF">
+            <VerticalLayout width="300" height="30" />
+            <VerticalLayout width="100" height="30">
+                <Button float="true" pos="3,3,0,0" width="31" height="25" bkcolor="#FFFFFBF0" bkcolor2="#00FFFF00" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button float="true" pos="35,3,0,0" width="31" height="25" bkcolor="#FFFFFBF0" bkcolor2="#00FFFF00" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button float="true" pos="67,3,0,0" width="31" height="25" bkcolor="#FFFFFBF0" bkcolor2="#00FFFF00" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+            </VerticalLayout>
+        </HorizontalLayout>
+    </VerticalLayout>
+</Window>
