@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDUIFive", "IDUIFive\IDUIFi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDUISix", "IDUISix\IDUISix.vcproj", "{786B2E6F-89ED-4490-AB57-2300DDE8CEAC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IDUISeven", "IDUISeven\IDUISeven.vcproj", "{4D89EDEA-B312-4423-8353-78466738D778}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -43,6 +45,10 @@ Global
 		{786B2E6F-89ED-4490-AB57-2300DDE8CEAC}.Debug|Win32.Build.0 = Debug|Win32
 		{786B2E6F-89ED-4490-AB57-2300DDE8CEAC}.Release|Win32.ActiveCfg = Release|Win32
 		{786B2E6F-89ED-4490-AB57-2300DDE8CEAC}.Release|Win32.Build.0 = Release|Win32
+		{4D89EDEA-B312-4423-8353-78466738D778}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4D89EDEA-B312-4423-8353-78466738D778}.Debug|Win32.Build.0 = Debug|Win32
+		{4D89EDEA-B312-4423-8353-78466738D778}.Release|Win32.ActiveCfg = Release|Win32
+		{4D89EDEA-B312-4423-8353-78466738D778}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
