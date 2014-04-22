@@ -24,6 +24,9 @@
 #define __ZTLIBRARY_H__
 
 
+
+/*包含头文件*/
+
 #include "zthread/Barrier.h"
 #include "zthread/BiasedReadWriteLock.h"
 #include "zthread/BlockingQueue.h"

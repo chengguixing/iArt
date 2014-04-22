@@ -25,6 +25,11 @@
 
 #include <windows.h>
 
+
+
+/*线程局部存储区模板*/
+
+
 namespace ZThread {
 
   /**

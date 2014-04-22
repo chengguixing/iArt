@@ -26,6 +26,9 @@
 
 #include "zthread/Config.h"
 
+
+/*Ðé»ùÀà*/
+
 namespace ZThread {
 
   /**

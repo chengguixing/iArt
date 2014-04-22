@@ -28,6 +28,10 @@
 #include "zthread/Config.h"
 #include "zthread/NonCopyable.h"
 
+
+
+/*×ÔÔö×Ô¼õ*/
+
 namespace ZThread {
 
   /**

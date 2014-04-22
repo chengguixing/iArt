@@ -27,6 +27,9 @@
 #include "zthread/FastMutex.h"
 #include <assert.h>
 
+
+/*µ¥ÀýÄ£Ê½*/
+
 namespace ZThread {
 
 //

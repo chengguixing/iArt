@@ -26,6 +26,10 @@
 #include "zthread/CountedPtr.h"
 #include "zthread/Runnable.h"
 
+
+
+/*任务接口*/
+
 namespace ZThread {
   
   class ThreadImpl;

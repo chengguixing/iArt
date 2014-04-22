@@ -25,6 +25,10 @@
 
 #include "zthread/CountedPtr.h"
 
+
+/*线程局部变量*/
+
+
 namespace ZThread {
 
   /**

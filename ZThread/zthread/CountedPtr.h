@@ -35,6 +35,17 @@
 # pragma warning(disable:4284)  // warning: odd return type for operator->
 #endif
 
+
+/*引用计数类*/
+
+
+/*
+	VS版本	VC产品版本号	cl文件版本号	_MSC_VER宏的值
+	98		6.x				12.x			1200
+	2005	8.x				14.x			1400
+	2008	9.x				15.x			1500
+*/
+
 namespace ZThread {
   
   /**
@@ -118,6 +129,7 @@ namespace ZThread {
     
         typedef CountedPtr<T, CountT> ThisT;
 
+		/*ThisT(ptr)为临时变量*/
         ThisT(ptr).swap(*this);
         return *this;
 
@@ -131,6 +143,7 @@ namespace ZThread {
     
         typedef CountedPtr<T, CountT> ThisT;
 
+		/*ThisT(ptr)为临时变量*/
         ThisT(ptr).swap(*this);
         return *this;
 

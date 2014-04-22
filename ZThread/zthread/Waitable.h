@@ -25,6 +25,12 @@
 
 #include "zthread/Exceptions.h"
 
+
+
+/*等待接口虚基类*/
+
+
+
 namespace ZThread { 
 
   /**
