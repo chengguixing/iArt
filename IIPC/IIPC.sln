@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Server", "Server\Server.vcproj", "{BD9630F6-88ED-45F0-94FB-C6E1F22F5A8F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Client", "Client\Client.vcproj", "{9723A620-F27B-441E-968F-1C75D77E0D07}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BD9630F6-88ED-45F0-94FB-C6E1F22F5A8F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BD9630F6-88ED-45F0-94FB-C6E1F22F5A8F}.Debug|Win32.Build.0 = Debug|Win32
+		{BD9630F6-88ED-45F0-94FB-C6E1F22F5A8F}.Release|Win32.ActiveCfg = Release|Win32
+		{BD9630F6-88ED-45F0-94FB-C6E1F22F5A8F}.Release|Win32.Build.0 = Release|Win32
+		{9723A620-F27B-441E-968F-1C75D77E0D07}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9723A620-F27B-441E-968F-1C75D77E0D07}.Debug|Win32.Build.0 = Debug|Win32
+		{9723A620-F27B-441E-968F-1C75D77E0D07}.Release|Win32.ActiveCfg = Release|Win32
+		{9723A620-F27B-441E-968F-1C75D77E0D07}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
