@@ -9,9 +9,7 @@
 #define IDR_MAINFRAME                   128
 #define IDC_EDITSEND                    1000
 #define IDC_BUTTONSEND                  1001
-#define IDC_EDITRECV                    1002
 #define IDC_BUTTONRECV                  1003
-#define IDC_BUTTON1                     1004
 #define IDC_BUTTONINIT                  1004
 
 // Next default values for new objects

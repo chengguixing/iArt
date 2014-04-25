@@ -6,7 +6,7 @@
 #include "Client.h"
 #include "ClientDlg.h"
 #include "SocketIPC\SockIPC_Interface.h"
-
+#include "tslog/tslog.h"
 
 static XAF_IPC_CONNECTION_HANDLE s_conn = NULL;
 
@@ -64,7 +64,6 @@ void CClientDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_EDITSEND, m_Send);
-	DDX_Control(pDX, IDC_EDITRECV, m_Recv);
 }
 
 BEGIN_MESSAGE_MAP(CClientDlg, CDialog)
@@ -73,7 +72,6 @@ BEGIN_MESSAGE_MAP(CClientDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDC_BUTTONSEND, &CClientDlg::OnSend)
-	ON_BN_CLICKED(IDC_BUTTONRECV, &CClientDlg::OnRecv)
 	ON_BN_CLICKED(IDC_BUTTONINIT, &CClientDlg::OnInit)
 END_MESSAGE_MAP()
 
@@ -167,71 +165,70 @@ HCURSOR CClientDlg::OnQueryDragIcon()
 void CClientDlg::OnSend()
 {
 	// TODO: 在此添加控件通知处理程序代码
+	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 	CString str;
 	m_Send.GetWindowText(str);
 
-	unsigned char ch[256];
-	strcpy((char*)ch,(LPSTR)(LPCTSTR)str);
 
+
+	TCHAR ch[256];
+	memcpy(ch, str, str.GetLength());
+
+
+	TSDEBUG(L"OnSend %s", ch);
 	XAF_IPCSend(s_conn, (byte*)ch, 255);
-
-}
-
-void CClientDlg::OnRecv()
-{
-	// TODO: 在此添加控件通知处理程序代码
-	TCHAR* ch = new TCHAR[255];
-	memset(ch, 0, 255);
-	XAF_IPCRecv(s_conn, (byte*)ch, 255);
 	
-	CString str;
-	str.Format(_T("%S"),ch);  
 
-	m_Recv.SetWindowText(str);
+	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 }
+
 
 DWORD ON_CONNECT(XAF_IPC_CONNECTION_HANDLE* pSock)
 {
-	printf("Enter %s\n", __FUNCTION__);
+	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 
+	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 DWORD ON_SEND(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
-	printf("Enter %s\n", __FUNCTION__);
+	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 
 	TCHAR* ch = new TCHAR[255];
 	memset(ch, 0, 255);
 	memcpy(ch, _T("i am client----------\n"), 255);
 	XAF_IPCSend(s_conn, (byte*)ch, 255);
-	wprintf(L"%s\n", ch);
+	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 
 	return 0;
 }
 
 DWORD ON_RECV(XAF_IPC_CONNECTION_HANDLE* pSock)
 {
-	printf("Enter %s\n", __FUNCTION__);
+	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 
 	TCHAR* ch = new TCHAR[255];
 	memset(ch, 0, 255);
 	XAF_IPCRecv(s_conn, (byte*)ch, 255);
 
-	printf("%S\n", ch);
+	TSDEBUG(L"%s", ch);
+
+	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 DWORD ON_CLOSE(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data, long resultCode)
 {
-	printf("Enter %s\n", __FUNCTION__);
+	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 
+	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 VOID InitIPC()
 {
-	printf("start client\n");
+	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 
 	XAF_IPCStartup(0);
 
@@ -256,12 +253,16 @@ VOID InitIPC()
 	XAF_IPCAttachConnectionEvent(s_conn, IPC_READ, ON_RECV, NULL);
 	XAF_IPCAttachConnectionEvent(s_conn, IPC_CLOSE, ON_CLOSE, NULL);
 	XAF_IPCConnect(conn, addr);
+
+	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 }
 
 
 
 void CClientDlg::OnInit()
 {
+	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 	// TODO: 在此添加控件通知处理程序代码
 	InitIPC();
+	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 }

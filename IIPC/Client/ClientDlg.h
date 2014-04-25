@@ -32,7 +32,6 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnSend();
-	afx_msg void OnRecv();
 	afx_msg void OnInit();
 	CEdit m_Send;
 	CEdit m_Recv;
