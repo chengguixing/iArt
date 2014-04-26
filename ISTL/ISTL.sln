@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLFour", "STLFour\STLFour.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLFive", "STLFive\STLFive.vcproj", "{77C04CA8-7C92-4026-9F5A-25F6D3AE9836}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLALLOC", "STLALLOC\STLALLOC.vcproj", "{DAA4B529-52BD-4F55-8C77-7024DD1D9549}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -43,6 +45,10 @@ Global
 		{77C04CA8-7C92-4026-9F5A-25F6D3AE9836}.Debug|Win32.Build.0 = Debug|Win32
 		{77C04CA8-7C92-4026-9F5A-25F6D3AE9836}.Release|Win32.ActiveCfg = Release|Win32
 		{77C04CA8-7C92-4026-9F5A-25F6D3AE9836}.Release|Win32.Build.0 = Release|Win32
+		{DAA4B529-52BD-4F55-8C77-7024DD1D9549}.Debug|Win32.ActiveCfg = Debug|Win32
+		{DAA4B529-52BD-4F55-8C77-7024DD1D9549}.Debug|Win32.Build.0 = Debug|Win32
+		{DAA4B529-52BD-4F55-8C77-7024DD1D9549}.Release|Win32.ActiveCfg = Release|Win32
+		{DAA4B529-52BD-4F55-8C77-7024DD1D9549}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
