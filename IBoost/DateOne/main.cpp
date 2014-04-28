@@ -9,7 +9,14 @@ using namespace boost::gregorian;
 
 int main() 
 {
-	date d;
+	date d1;
+	date d2(2010, 1, 1);
+	date d3(2000, Jan, 1);
+	date d4(d2);
+
+	assert(d1 == date(not_a_date_time));
+	assert(d2 == d4);
+	assert(d3 < d4);
 
 
 
