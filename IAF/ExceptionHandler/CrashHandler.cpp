@@ -1,4 +1,5 @@
 #include "CrashHandler.h"
+#include "tslog/tslog.h"
 
 #ifndef _AddressOfReturnAddress
 
@@ -114,6 +115,7 @@ void iCrashHandler::GetExceptionPointers(DWORD dwExceptionCode, EXCEPTION_POINTE
 
 void iCrashHandler::CreateMiniDump(EXCEPTION_POINTERS* pExcPtrs)
 {
+	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 	HMODULE hDbgHelp = NULL;
 	HANDLE hFile = NULL;
 	MINIDUMP_EXCEPTION_INFORMATION mei;
@@ -122,6 +124,7 @@ void iCrashHandler::CreateMiniDump(EXCEPTION_POINTERS* pExcPtrs)
 	hDbgHelp = LoadLibrary(_T("dbghelp.dll"));
 	if (NULL == hDbgHelp)
 	{
+		TSDEBUG(L"LoadLibrary Failed");
 		return ;
 	}
 	hFile = CreateFile(_T("crashdump.dmp"),
@@ -131,8 +134,9 @@ void iCrashHandler::CreateMiniDump(EXCEPTION_POINTERS* pExcPtrs)
 		CREATE_ALWAYS,
 		FILE_ATTRIBUTE_NORMAL,
 		NULL);
-	if (INVALID_HANDLE_VALUE)
+	if (INVALID_HANDLE_VALUE == hFile)
 	{
+		TSDEBUG(L"CreateFile Failed");
 		return ;
 	}
 
@@ -155,6 +159,7 @@ void iCrashHandler::CreateMiniDump(EXCEPTION_POINTERS* pExcPtrs)
 	LPMINIDUMPWRITEDUMP pfnMiniDumpWriteDump = (LPMINIDUMPWRITEDUMP)GetProcAddress(hDbgHelp, "MiniDumpWriteDump");
 	if (!pfnMiniDumpWriteDump)
 	{
+		TSDEBUG(L"GetProcAddress Failed");
 		return ;
 	}
 
@@ -170,10 +175,12 @@ void iCrashHandler::CreateMiniDump(EXCEPTION_POINTERS* pExcPtrs)
 		&mci);
 	if (!bWriteDump)
 	{
+		TSDEBUG(L"pfnMiniDumpWriteDump Failed");
 		return ;
 	}
 	CloseHandle(hFile);
 	FreeLibrary(hDbgHelp);
+	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 }
 
 LONG WINAPI iCrashHandler::SehHandler(PEXCEPTION_POINTERS pExceptionPtrs)
