@@ -33,6 +33,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLTraitsOne", "STLTraitsOn
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLVecOne", "STLVecOne\STLVecOne.vcproj", "{62D6B09C-0BE2-4643-86A5-DC31DFEC67F6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLListOne", "STLListOne\STLListOne.vcproj", "{B63215A0-3CA1-4D73-967D-BE244F8938DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -103,6 +105,10 @@ Global
 		{62D6B09C-0BE2-4643-86A5-DC31DFEC67F6}.Debug|Win32.Build.0 = Debug|Win32
 		{62D6B09C-0BE2-4643-86A5-DC31DFEC67F6}.Release|Win32.ActiveCfg = Release|Win32
 		{62D6B09C-0BE2-4643-86A5-DC31DFEC67F6}.Release|Win32.Build.0 = Release|Win32
+		{B63215A0-3CA1-4D73-967D-BE244F8938DE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B63215A0-3CA1-4D73-967D-BE244F8938DE}.Debug|Win32.Build.0 = Debug|Win32
+		{B63215A0-3CA1-4D73-967D-BE244F8938DE}.Release|Win32.ActiveCfg = Release|Win32
+		{B63215A0-3CA1-4D73-967D-BE244F8938DE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
