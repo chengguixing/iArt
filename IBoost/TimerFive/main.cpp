@@ -1,4 +1,4 @@
-#include <boost/timer/timer.hpp>
+//#include <boost/timer/timer.hpp>
 #include <memory>
 #include <vector>
 #include <string>
@@ -6,9 +6,9 @@
 #include <stdlib.h>
 
 using namespace std;
-using namespace boost::timer;
+//using namespace boost::timer;
 
-
+/*
 vector<string> createVector_98()
 {
     vector<string> vec;
@@ -26,9 +26,10 @@ vector<string> createVector_11()
     }
     return move(vec);
 }
-
+*/
 int main()
 {
+	/*
     const int TEST_TIMES = 100;
 
     vector<string> result;
@@ -47,7 +48,6 @@ int main()
     }
     cout << "use move" << timer.format(6) << endl;
 
-
-	system("pause");
+	*/
 	return 0;
 } 
