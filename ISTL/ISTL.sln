@@ -31,6 +31,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLIteratorThree", "STLIter
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLTraitsOne", "STLTraitsOne\STLTraitsOne.vcproj", "{70462B03-ED1C-4EBA-838A-FD7E7D6D267C}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "STLVecOne", "STLVecOne\STLVecOne.vcproj", "{62D6B09C-0BE2-4643-86A5-DC31DFEC67F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -97,6 +99,10 @@ Global
 		{70462B03-ED1C-4EBA-838A-FD7E7D6D267C}.Debug|Win32.Build.0 = Debug|Win32
 		{70462B03-ED1C-4EBA-838A-FD7E7D6D267C}.Release|Win32.ActiveCfg = Release|Win32
 		{70462B03-ED1C-4EBA-838A-FD7E7D6D267C}.Release|Win32.Build.0 = Release|Win32
+		{62D6B09C-0BE2-4643-86A5-DC31DFEC67F6}.Debug|Win32.ActiveCfg = Debug|Win32
+		{62D6B09C-0BE2-4643-86A5-DC31DFEC67F6}.Debug|Win32.Build.0 = Debug|Win32
+		{62D6B09C-0BE2-4643-86A5-DC31DFEC67F6}.Release|Win32.ActiveCfg = Release|Win32
+		{62D6B09C-0BE2-4643-86A5-DC31DFEC67F6}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
