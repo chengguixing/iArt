@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F216954A-2928-4134-86D8-A24317239A2D}</ProjectGuid>
+    <ProjectGuid>{BE137A05-8DA2-48F9-BE92-2DAC5AD1F217}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>optional</RootNamespace>
+    <RootNamespace>condition_variable_any</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -100,6 +100,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>..\..\pdb\$(Configuration)\$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalLibraryDirectories>..\..\boost\stage\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_thread-vc110-mt-gd-1_55.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -116,6 +117,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>..\..\pdb\$(Configuration)\$(TargetName).pdb</ProgramDatabaseFile>
       <AdditionalLibraryDirectories>..\..\boost\stage\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_thread-vc110-mt-gd-1_55.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
