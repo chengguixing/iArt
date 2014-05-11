@@ -8,6 +8,8 @@
 #include "SocketIPC\SockIPC_Interface.h"
 #include "tslog/tslog.h"
 
+
+
 static XAF_IPC_CONNECTION_HANDLE s_conn = NULL;
 
 
@@ -166,19 +168,14 @@ void CClientDlg::OnSend()
 {
 	// TODO: 在此添加控件通知处理程序代码
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-	CString str;
-	m_Send.GetWindowText(str);
+	CString cstr;
+	m_Send.GetWindowText(cstr);
 
 
+	char text[255] = "Client Send";
+	XAF_IPCSend(s_conn, (byte*)text, 255);
 
-	TCHAR ch[256];
-	memcpy(ch, str, str.GetLength());
-
-
-	TSDEBUG(L"OnSend %s", ch);
-	XAF_IPCSend(s_conn, (byte*)ch, 255);
 	
-
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 }
 
@@ -186,7 +183,7 @@ void CClientDlg::OnSend()
 DWORD ON_CONNECT(XAF_IPC_CONNECTION_HANDLE* pSock)
 {
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
+	TSDEBUG(L"Client ON_CONNECT");
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
@@ -194,11 +191,7 @@ DWORD ON_CONNECT(XAF_IPC_CONNECTION_HANDLE* pSock)
 DWORD ON_SEND(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
-	TCHAR* ch = new TCHAR[255];
-	memset(ch, 0, 255);
-	memcpy(ch, _T("i am client----------\n"), 255);
-	XAF_IPCSend(s_conn, (byte*)ch, 255);
+	TSDEBUG(L"Client ON_SEND");
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 
 	return 0;
@@ -207,13 +200,7 @@ DWORD ON_SEND(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 DWORD ON_RECV(XAF_IPC_CONNECTION_HANDLE* pSock)
 {
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
-	TCHAR* ch = new TCHAR[255];
-	memset(ch, 0, 255);
-	XAF_IPCRecv(s_conn, (byte*)ch, 255);
-
-	TSDEBUG(L"%s", ch);
-
+	TSDEBUG(L"Client ON_RECV");
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
@@ -221,7 +208,7 @@ DWORD ON_RECV(XAF_IPC_CONNECTION_HANDLE* pSock)
 DWORD ON_CLOSE(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data, long resultCode)
 {
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
+	TSDEBUG(L"Client ON_CLOSE");
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
@@ -233,19 +220,14 @@ VOID InitIPC()
 	XAF_IPCStartup(0);
 
 
-	STARTUPINFO si;
-	ZeroMemory(&si, sizeof(STARTUPINFO));
-	si.cb = sizeof(STARTUPINFO);
-	PROCESS_INFORMATION pi;
-	LPTSTR szCmdline = _tcsdup(TEXT("D:\\iArt\\Debug\\Server.exe"));
 
-	CreateProcess(szCmdline, NULL, NULL, NULL, TRUE, CREATE_NEW_CONSOLE, NULL, NULL, &si, &pi);
 
 	IPCAddress addr;
-	addr.dwPid = pi.dwProcessId;
+	addr.dwPid = 7268;
 	addr.dwPort = 8000;
 
 	XAF_IPC_CONNECTION_HANDLE conn = XAF_IPCConnection();
+	TSDEBUG(L"Client XAF_IPCConnection");
 	s_conn = conn;
 
 	XAF_IPCAttachConnectionEvent(s_conn, IPC_CONNECT, ON_CONNECT, NULL);

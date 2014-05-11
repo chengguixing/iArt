@@ -8,6 +8,8 @@
 #include "SocketIPC\SockIPC_Interface.h"
 #include "tslog/tslog.h"
 
+
+
 static XAF_IPC_CONNECTION_HANDLE s_conn = NULL;
 
 
@@ -171,12 +173,8 @@ void CServerDlg::OnSend()
 	m_Send.GetWindowText(str);
 
 
-	TCHAR ch[256];
-	memcpy(ch, str, str.GetLength());
-
-
-	TSDEBUG(L"OnSend %s", ch);
-	XAF_IPCSend(s_conn, (byte*)ch, 255);
+	char text[255] = "Server OnSend";
+	DWORD ret = XAF_IPCSend(s_conn, (byte*)text, 255);
 
 
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
@@ -185,7 +183,7 @@ void CServerDlg::OnSend()
 DWORD ON_CONNECT(XAF_IPC_CONNECTION_HANDLE pSock)
 {
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
+	TSDEBUG(L"Server ON_CONNECT");
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
@@ -193,12 +191,7 @@ DWORD ON_CONNECT(XAF_IPC_CONNECTION_HANDLE pSock)
 DWORD ON_SEND(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
-	TCHAR* ch = new TCHAR[255];
-	memset(ch, 0, 255);
-	memcpy(ch, _T("i am server----------\n"), 255);
-	XAF_IPCSend(sockIPC, (byte*)ch, 255);
-
+	TSDEBUG(L"Server ON_SEND");
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
@@ -206,13 +199,7 @@ DWORD ON_SEND(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 DWORD ON_RECV(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
-	TCHAR* ch = new TCHAR[255];
-	memset(ch, 0, 255);
-	XAF_IPCRecv(sockIPC, (byte*)ch, 255);
-
-	TSDEBUG(L"%s", ch);
-
+	TSDEBUG(L"Server ON_RECV");
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
@@ -221,7 +208,7 @@ DWORD ON_ACCPET(XAF_IPC_LISTENER_HANDLE pSock, XAF_IPC_CONNECTION_HANDLE sockCon
 {
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 	s_conn = sockConn;
-
+	TSDEBUG(L"Server ON_ACCPET");
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
@@ -229,7 +216,7 @@ DWORD ON_ACCPET(XAF_IPC_LISTENER_HANDLE pSock, XAF_IPC_CONNECTION_HANDLE sockCon
 DWORD ON_CLOSE(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data, long resultCode)
 {
 	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
+	TSDEBUG(L"Server ON_CLOSE");
 	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
@@ -242,9 +229,11 @@ VOID InitIPC()
 	XAF_IPCStartup(0);
 
 	XAF_IPC_LISTENER_HANDLE listener = XAF_IPCListener();
+	TSDEBUG(L"Server XAF_IPCListener");
 
 	IPCAddress addr;
 	addr.dwPid = GetCurrentProcessId();
+	TSDEBUG(L"ServerProcessID = %d", addr.dwPid);
 	addr.dwPort = 8000;
 	XAF_IPCBind(listener, addr);
 	XAF_IPCAttachListenerEvent(listener, IPC_CONNECT, ON_CONNECT, NULL);

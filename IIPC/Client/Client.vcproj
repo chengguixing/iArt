@@ -68,7 +68,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SocketIPC.lib imm32.lib"
+				AdditionalDependencies="SockIPC.lib imm32.lib"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\3rd\lib\$(ConfigurationName);"
 				GenerateDebugInformation="true"
@@ -152,7 +152,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="SocketIPC.lib imm32.lib"
+				AdditionalDependencies="SockIPC.lib imm32.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="..\..\3rd\lib\$(ConfigurationName);"
 				GenerateDebugInformation="true"
