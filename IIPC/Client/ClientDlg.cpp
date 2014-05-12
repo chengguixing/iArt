@@ -223,7 +223,7 @@ VOID InitIPC()
 
 
 	IPCAddress addr;
-	addr.dwPid = 7268;
+	addr.dwPid = 5040;
 	addr.dwPort = 8000;
 
 	XAF_IPC_CONNECTION_HANDLE conn = XAF_IPCConnection();
