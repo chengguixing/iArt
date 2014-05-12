@@ -3,7 +3,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 #pragma once
-#include "tslog/tslog.h"
+
 #include "../SocketIPC/SocketIPC.h"
 
 class CMainDlg : public CDialogImpl<CMainDlg>, public CUpdateUI<CMainDlg>,

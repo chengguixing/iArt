@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SockIPC", "SockIPC\SockIPC.vcproj", "{3731E4E2-83ED-4A66-A304-B1A42807FD78}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_ipc_server", "test_ipc_server\test_ipc_server.vcproj", "{4C033B2D-AA68-434F-A7BA-1BBA5EE62AF7}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_ipc", "test_ipc\test_ipc.vcproj", "{149F4C8F-364E-4A23-BD49-9FD7BE9F9E68}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3731E4E2-83ED-4A66-A304-B1A42807FD78}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3731E4E2-83ED-4A66-A304-B1A42807FD78}.Debug|Win32.Build.0 = Debug|Win32
+		{3731E4E2-83ED-4A66-A304-B1A42807FD78}.Release|Win32.ActiveCfg = Release|Win32
+		{3731E4E2-83ED-4A66-A304-B1A42807FD78}.Release|Win32.Build.0 = Release|Win32
+		{4C033B2D-AA68-434F-A7BA-1BBA5EE62AF7}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4C033B2D-AA68-434F-A7BA-1BBA5EE62AF7}.Debug|Win32.Build.0 = Debug|Win32
+		{4C033B2D-AA68-434F-A7BA-1BBA5EE62AF7}.Release|Win32.ActiveCfg = Release|Win32
+		{4C033B2D-AA68-434F-A7BA-1BBA5EE62AF7}.Release|Win32.Build.0 = Release|Win32
+		{149F4C8F-364E-4A23-BD49-9FD7BE9F9E68}.Debug|Win32.ActiveCfg = Debug|Win32
+		{149F4C8F-364E-4A23-BD49-9FD7BE9F9E68}.Debug|Win32.Build.0 = Debug|Win32
+		{149F4C8F-364E-4A23-BD49-9FD7BE9F9E68}.Release|Win32.ActiveCfg = Release|Win32
+		{149F4C8F-364E-4A23-BD49-9FD7BE9F9E68}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
