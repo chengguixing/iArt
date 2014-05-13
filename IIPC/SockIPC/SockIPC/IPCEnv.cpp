@@ -54,7 +54,7 @@ unsigned int CIPCEnv::ThreadProc()
 		DWORD dwEvent;
 		dwEvent = WaitForMultipleObjects(2 * dwSocketNum + 1, hEvents, FALSE, INFINITE);
  		dwEvent -= WAIT_OBJECT_0;
-		TSDEBUG(L"Enter %s : %s dwEvent = %d", __FILEW__, __FUNCTIONW__, dwEvent);
+		
 		if (dwEvent == WAIT_TIMEOUT)
 		{
 			//printf("/********OnTimer********/\n");
@@ -86,15 +86,13 @@ unsigned int CIPCEnv::ThreadProc()
 
 DWORD CIPCEnv::IPCStartup(DWORD dwParam)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	return 0;
 }
 DWORD CIPCEnv::IPCClearup()
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	PostQuitMessage(0);
 	int size = m_vecSocket.size();
-	for (int i=0; i<size; i++)
+	for (int i = 0; i < size; ++i)
 	{
 		m_vecSocket[i]->SendMessage(WM_IPC_DELETE);
 	}
@@ -104,7 +102,7 @@ DWORD CIPCEnv::IPCClearup()
 
 DWORD  CIPCEnv::AttachSocketEvent(CIPCSocket* pSock)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	m_vecSocket.push_back(pSock);
 	m_vecRecvEvents.push_back(&(pSock->m_hReadEvent));
 	m_vecSendEvents.push_back(&(pSock->m_hWriteEvent));
@@ -114,7 +112,7 @@ DWORD  CIPCEnv::AttachSocketEvent(CIPCSocket* pSock)
 
 DWORD  CIPCEnv::DetachSocketEvent(CIPCSocket* pSock)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	DWORD dwSize = m_vecSocket.size();
 	for (vector<HANDLE*>::iterator iter=m_vecRecvEvents.begin(); iter!=m_vecRecvEvents.end(); iter++)
 	{

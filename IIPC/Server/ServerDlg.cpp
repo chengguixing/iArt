@@ -168,7 +168,6 @@ HCURSOR CServerDlg::OnQueryDragIcon()
 void CServerDlg::OnSend()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 	CString str;
 	m_Send.GetWindowText(str);
 
@@ -177,63 +176,43 @@ void CServerDlg::OnSend()
 	DWORD ret = XAF_IPCSend(s_conn, (byte*)text, 255);
 
 
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 }
 
 DWORD ON_CONNECT(XAF_IPC_CONNECTION_HANDLE pSock)
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-	TSDEBUG(L"Server ON_CONNECT");
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 DWORD ON_SEND(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-	TSDEBUG(L"Server ON_SEND");
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 DWORD ON_RECV(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-	TSDEBUG(L"Server ON_RECV");
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 DWORD ON_ACCPET(XAF_IPC_LISTENER_HANDLE pSock, XAF_IPC_CONNECTION_HANDLE sockConn, IPCAddress* pAddr, void* data)
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 	s_conn = sockConn;
-	TSDEBUG(L"Server ON_ACCPET");
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 DWORD ON_CLOSE(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data, long resultCode)
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-	TSDEBUG(L"Server ON_CLOSE");
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 
 VOID InitIPC()
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
 	XAF_IPCStartup(0);
 
 	XAF_IPC_LISTENER_HANDLE listener = XAF_IPCListener();
-	TSDEBUG(L"Server XAF_IPCListener");
 
 	IPCAddress addr;
 	addr.dwPid = GetCurrentProcessId();
-	TSDEBUG(L"ServerProcessID = %d", addr.dwPid);
 	addr.dwPort = 8000;
 	XAF_IPCBind(listener, addr);
 	XAF_IPCAttachListenerEvent(listener, IPC_CONNECT, ON_CONNECT, NULL);
@@ -242,14 +221,9 @@ VOID InitIPC()
 	XAF_IPCAttachListenerEvent(listener, IPC_READ, ON_RECV, NULL);
 	XAF_IPCAttachListenerEvent(listener, IPC_CLOSE, ON_CLOSE, NULL);
 	XAF_IPCListen(listener, 5);
-
-	XAF_IPC_CONNECTION_HANDLE conn = NULL;
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 }
 void CServerDlg::OnInit()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 	InitIPC();
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 }

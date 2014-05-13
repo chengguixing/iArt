@@ -56,7 +56,7 @@ DWORD CIPCSocket::IPCClose()
 
 DWORD CIPCSocket::SetHeader(byte* byteHeader, size_t len, const IPCAddress& addrSrc, const IPCAddress& addrDes, const DWORD& dwFlag)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	if (len < 5 * sizeof(UINT32))
 	{
 		return 0;
@@ -87,7 +87,7 @@ DWORD CIPCSocket::SetHeader(byte* byteHeader, size_t len, const IPCAddress& addr
 	uTemp = (UINT32)dwFlag;
 	memcpy(byteHeader + offset, &uTemp, sizeof(uTemp));
 	offset += sizeof(uTemp);
-	TSDEBUG(L"Enter %s : %s offset = %d", __FILEW__, __FUNCTIONW__, offset);
+	
 	return offset;
 }
 
@@ -129,12 +129,12 @@ DWORD CIPCSocket::GetHeader(IPCAddress& addrSrc, IPCAddress& addrDes, DWORD& dwF
 
 DWORD CIPCSocket::IPCAttachEvent(IPC_EVENT lEvent, void* pfn, void* userdata)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	HWND hwnd = NULL;
-	m_dwEventCookie++;
+	++m_dwEventCookie;
 	DWORD dwThreadID = GetCurrentThreadId();
 	if (hwnd == NULL)
 	{
+
 	}
 	IPCCallback callback;
 	callback.ipcEvent = lEvent;
@@ -163,7 +163,7 @@ DWORD CIPCSocket::IPCAttachEvent(IPC_EVENT lEvent, void* pfn, void* userdata)
 
 DWORD CIPCSocket::FireMessage(IPC_EVENT event, WPARAM wParam, LPARAM lParam)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	BOOL b = false;
 	map<DWORD, IPCCallback>::iterator iter = m_mapMsg.begin();
 	for (;iter != m_mapMsg.end(); iter++)
@@ -178,7 +178,7 @@ DWORD CIPCSocket::FireMessage(IPC_EVENT event, WPARAM wParam, LPARAM lParam)
 
 LRESULT CIPCSocket::Fire_OnConnect(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	CIPCSocket *pSock = (CIPCSocket*)wParam;
 	for (map<DWORD, IPCCallback>::iterator iter = m_mapMsg.begin(); iter != m_mapMsg.end(); iter++)
 	{
@@ -193,7 +193,7 @@ LRESULT CIPCSocket::Fire_OnConnect(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL
 
 LRESULT CIPCSocket::Fire_OnRead(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	for (map<DWORD, IPCCallback>::iterator iter = m_mapMsg.begin(); iter != m_mapMsg.end(); iter++)
 	{
 		if (iter->second.ipcEvent == (WM_IPC_READ - WM_USER))
@@ -208,7 +208,7 @@ LRESULT CIPCSocket::Fire_OnRead(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
 
 LRESULT CIPCSocket::Fire_OnWrite(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	for (map<DWORD, IPCCallback>::iterator iter = m_mapMsg.begin(); iter != m_mapMsg.end(); iter++)
 	{
 		if (iter->second.ipcEvent == (WM_IPC_WRITE - WM_USER))
@@ -223,13 +223,13 @@ LRESULT CIPCSocket::Fire_OnWrite(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& 
 
 LRESULT CIPCSocket::Fire_OnOob(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	return 0;
 }
 
 LRESULT CIPCSocket::Fire_OnAccept(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	CIPCSocket *pSock = (CIPCSocket*)wParam;
 	for (map<DWORD, IPCCallback>::iterator iter = m_mapMsg.begin(); iter != m_mapMsg.end(); iter++)
 	{
@@ -245,7 +245,7 @@ LRESULT CIPCSocket::Fire_OnAccept(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL&
 
 LRESULT CIPCSocket::Fire_OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	for (map<DWORD, IPCCallback>::iterator iter = m_mapMsg.begin(); iter != m_mapMsg.end(); iter++)
 	{
 		if (iter->second.ipcEvent == (WM_IPC_CLOSE - WM_USER))
@@ -260,7 +260,7 @@ LRESULT CIPCSocket::Fire_OnClose(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& 
 
 LRESULT CIPCSocket::Fire_OnBreak(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	for (map<DWORD, IPCCallback>::iterator iter = m_mapMsg.begin(); iter != m_mapMsg.end(); iter++)
 	{
 		if (iter->second.ipcEvent == (WM_IPC_BREAK - WM_USER))
@@ -275,14 +275,14 @@ LRESULT CIPCSocket::Fire_OnBreak(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& 
 
 LRESULT CIPCSocket::OnDelete(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	DestroyWindow();
 	return 0;
 }
 
 byte* CIPCSocket::GetWriteFileMap()
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	TCHAR ch[255];
 	_stprintf_s(ch, _T("IPC_MEM_%d_%d"), m_addrDes.dwPid, m_addrDes.dwPort);
 
@@ -303,7 +303,7 @@ byte* CIPCSocket::GetWriteFileMap()
 }
 byte* CIPCSocket::GetReadFileMap()
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	byte* pBuf = (byte*)MapViewOfFile(m_hFileMap, FILE_MAP_ALL_ACCESS, 0, 0, 0);
 	if (NULL == pBuf)
 	{

@@ -167,67 +167,45 @@ HCURSOR CClientDlg::OnQueryDragIcon()
 void CClientDlg::OnSend()
 {
 	// TODO: 在此添加控件通知处理程序代码
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 	CString cstr;
 	m_Send.GetWindowText(cstr);
 
 
 	char text[255] = "Client Send";
-	XAF_IPCSend(s_conn, (byte*)text, 255);
-
-	
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
+	XAF_IPCSend(s_conn, (byte*)text, 255);	
 }
 
 
 DWORD ON_CONNECT(XAF_IPC_CONNECTION_HANDLE* pSock)
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-	TSDEBUG(L"Client ON_CONNECT");
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 DWORD ON_SEND(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-	TSDEBUG(L"Client ON_SEND");
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
-
 	return 0;
 }
 
 DWORD ON_RECV(XAF_IPC_CONNECTION_HANDLE* pSock)
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-	TSDEBUG(L"Client ON_RECV");
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 DWORD ON_CLOSE(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data, long resultCode)
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-	TSDEBUG(L"Client ON_CLOSE");
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 	return 0;
 }
 
 VOID InitIPC()
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
-
 	XAF_IPCStartup(0);
 
-
-
-
 	IPCAddress addr;
-	addr.dwPid = 5040;
+	addr.dwPid = 5860;
 	addr.dwPort = 8000;
 
 	XAF_IPC_CONNECTION_HANDLE conn = XAF_IPCConnection();
-	TSDEBUG(L"Client XAF_IPCConnection");
+	
 	s_conn = conn;
 
 	XAF_IPCAttachConnectionEvent(s_conn, IPC_CONNECT, ON_CONNECT, NULL);
@@ -235,16 +213,13 @@ VOID InitIPC()
 	XAF_IPCAttachConnectionEvent(s_conn, IPC_READ, ON_RECV, NULL);
 	XAF_IPCAttachConnectionEvent(s_conn, IPC_CLOSE, ON_CLOSE, NULL);
 	XAF_IPCConnect(conn, addr);
-
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
 }
 
 
 
 void CClientDlg::OnInit()
 {
-	TSDEBUG(L"Enter %s", __FUNCTIONW__);
 	// TODO: 在此添加控件通知处理程序代码
 	InitIPC();
-	TSDEBUG(L"Leave %s", __FUNCTIONW__);
+	
 }

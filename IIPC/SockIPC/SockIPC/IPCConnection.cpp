@@ -14,12 +14,12 @@ CIPCConnection::CIPCConnection(void)
 		srand((unsigned)time(NULL));
 		m_addrSrc.dwPort = (DWORD)(((double)rand() / (double)RAND_MAX) * 65535 + 1);
 		_stprintf_s(ch, _T("IPC_MEM_%d_%d"), m_addrSrc.dwPid, m_addrSrc.dwPort);
-		TSDEBUG(L"Enter %s : %s %s", __FILEW__, __FUNCTIONW__, ch);
 		hFileMapping = OpenFileMapping(FILE_MAP_ALL_ACCESS, false, ch);
 	} while(hFileMapping != NULL);
 
 	_stprintf_s(ch, _T("IPC_MEM_%d_%d"), m_addrSrc.dwPid, m_addrSrc.dwPort);
 	m_hFileMap = CreateFileMapping(NULL, NULL, PAGE_READWRITE, 0, IPC_MEM_SIZE, ch);
+	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 }
 
 CIPCConnection::~CIPCConnection(void)
@@ -32,8 +32,11 @@ CIPCConnection::~CIPCConnection(void)
 
 DWORD CIPCConnection::IPCConnect(IPCAddress& addr)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
+	
 	m_addrDes = addr;
+	TSDEBUG(L"%s m_addrDes %d %d", __FUNCTIONW__, m_addrDes.dwPid, m_addrDes.dwPort);
+	TSDEBUG(L"%s m_addrSrc %d %d", __FUNCTIONW__, m_addrSrc.dwPid, m_addrSrc.dwPort);
+
 
 	HANDLE hProcess = OpenProcess(STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0xFFF, FALSE, addr.dwPid); 
 	if (hProcess == NULL)
@@ -45,12 +48,15 @@ DWORD CIPCConnection::IPCConnect(IPCAddress& addr)
 	TCHAR ch[255];
 	_stprintf_s(ch, _T("IPC_BUSY_EVENT_%d_%d"), m_addrSrc.dwPid, m_addrSrc.dwPort);
 	m_hBusyEvent = CreateEvent(NULL, FALSE, TRUE, ch);
+	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 
 	_stprintf_s(ch, _T("IPC_READ_EVENT_%d_%d"), m_addrSrc.dwPid, m_addrSrc.dwPort);
 	m_hReadEvent = CreateEvent(NULL, FALSE, FALSE, ch);
+	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 
 	_stprintf_s(ch, _T("IPC_WRITE_EVENT_%d_%d"), m_addrSrc.dwPid, m_addrSrc.dwPort);
 	m_hWriteEvent = CreateEvent(NULL, FALSE, TRUE, ch);
+	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 
 	_stprintf_s(ch, _T("IPC_BUSY_EVENT_%d_%d"), m_addrDes.dwPid, m_addrDes.dwPort);
 	m_hDesBusyEvent = OpenEvent(EVENT_ALL_ACCESS, false, ch);
@@ -58,6 +64,7 @@ DWORD CIPCConnection::IPCConnect(IPCAddress& addr)
 	{
 		return 2;
 	}
+	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 
 	_stprintf_s(ch, _T("IPC_READ_EVENT_%d_%d"), m_addrDes.dwPid, m_addrDes.dwPort);
 	m_hDesReadEvent = OpenEvent(EVENT_ALL_ACCESS, false, ch);
@@ -65,6 +72,7 @@ DWORD CIPCConnection::IPCConnect(IPCAddress& addr)
 	{
 		return 3;
 	}
+	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 
 	CIPCEnv::Instance()->AttachSocketEvent(this);
 
@@ -74,7 +82,6 @@ DWORD CIPCConnection::IPCConnect(IPCAddress& addr)
 //由listener创建的connection，对源connection进行首次连接
 DWORD CIPCConnection::IPCAccept(IPCAddress& addr)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	m_addrDes = addr;
 
 	HANDLE hProcess = OpenProcess(STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0xFFF, FALSE, addr.dwPid); 
@@ -130,12 +137,10 @@ DWORD CIPCConnection::IPCAccept(IPCAddress& addr)
 	ResetEvent(m_hDesBusyEvent);
 	FireMessage(IPC_WRITE);
 
-
 	return 0;
 }
 DWORD CIPCConnection::IPCSend(byte* byteBuff, size_t buffSize, DWORD dwFlag)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	if (m_queueSendCmd.size() > 10)
 	{
 		return 1;
@@ -169,7 +174,6 @@ DWORD CIPCConnection::IPCSend(byte* byteBuff, size_t buffSize, DWORD dwFlag)
 }
 DWORD CIPCConnection::IPCRecv(byte* byteBuff, size_t buffSize)
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	if (m_queueRecvCmd.empty())
 	{
 		return 1;
@@ -195,7 +199,6 @@ DWORD CIPCConnection::IPCRecv(byte* byteBuff, size_t buffSize)
 
 DWORD CIPCConnection::IPCClose()
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	SetEvent(m_hDesBusyEvent);
 	if (m_dwStatus != ENUM_IPC_RECVCLOSE)
 	{
@@ -221,12 +224,10 @@ DWORD CIPCConnection::IPCClose()
 
 DWORD CIPCConnection:: OnConnection()
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	return 0;
 }
 DWORD CIPCConnection::OnSend()
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	if (m_dwStatus == ENUM_IPC_CONN || m_dwStatus == ENUM_IPC_PING)
 	{
 		//先等对方空闲
@@ -305,7 +306,6 @@ DWORD CIPCConnection::OnSend()
 }
 DWORD CIPCConnection::OnRecv()
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	byte *byteConn = new byte[IPC_MEM_SIZE];
 	IPCAddress addrSrc;
 	IPCAddress addrDes;
@@ -398,7 +398,6 @@ DWORD CIPCConnection::OnRecv()
 }
 DWORD CIPCConnection::OnTimer()
 {
-	TSDEBUG(L"Enter %s : %s", __FILEW__, __FUNCTIONW__);
 	DWORD dwTickCount = GetTickCount();
 	if (m_dwStatus == ENUM_IPC_SEND)
 	{
