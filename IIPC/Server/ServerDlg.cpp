@@ -185,11 +185,13 @@ DWORD ON_CONNECT(XAF_IPC_CONNECTION_HANDLE pSock)
 
 DWORD ON_SEND(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
+	TSDEBUG(L"Server ON_SEND %s", (byte*)data);
 	return 0;
 }
 
 DWORD ON_RECV(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
+	TSDEBUG(L"Server ON_RECV %s", (byte*)data);
 	return 0;
 }
 
@@ -211,6 +213,7 @@ VOID InitIPC()
 
 	XAF_IPC_LISTENER_HANDLE listener = XAF_IPCListener();
 
+	/*进程PID和端口号*/
 	IPCAddress addr;
 	addr.dwPid = GetCurrentProcessId();
 	addr.dwPort = 8000;

@@ -1,8 +1,7 @@
 #pragma once
 #include "ipcsocket.h"
 
-class CIPCListener :
-	public CIPCSocket
+class CIPCListener : public CIPCSocket
 {
 public:
 	CIPCListener(void);

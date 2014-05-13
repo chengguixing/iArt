@@ -183,11 +183,13 @@ DWORD ON_CONNECT(XAF_IPC_CONNECTION_HANDLE* pSock)
 
 DWORD ON_SEND(XAF_IPC_CONNECTION_HANDLE sockIPC, void* data)
 {
+	TSDEBUG(L"Client ON_SEND %s", (byte*)data);
 	return 0;
 }
 
-DWORD ON_RECV(XAF_IPC_CONNECTION_HANDLE* pSock)
+DWORD ON_RECV(XAF_IPC_CONNECTION_HANDLE* pSock, void* data)
 {
+	TSDEBUG(L"Client ON_RECV %s", (byte*)data);
 	return 0;
 }
 
@@ -201,7 +203,7 @@ VOID InitIPC()
 	XAF_IPCStartup(0);
 
 	IPCAddress addr;
-	addr.dwPid = 5860;
+	addr.dwPid = 4980;
 	addr.dwPort = 8000;
 
 	XAF_IPC_CONNECTION_HANDLE conn = XAF_IPCConnection();

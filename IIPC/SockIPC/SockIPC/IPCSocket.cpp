@@ -129,13 +129,7 @@ DWORD CIPCSocket::GetHeader(IPCAddress& addrSrc, IPCAddress& addrDes, DWORD& dwF
 
 DWORD CIPCSocket::IPCAttachEvent(IPC_EVENT lEvent, void* pfn, void* userdata)
 {
-	HWND hwnd = NULL;
 	++m_dwEventCookie;
-	DWORD dwThreadID = GetCurrentThreadId();
-	if (hwnd == NULL)
-	{
-
-	}
 	IPCCallback callback;
 	callback.ipcEvent = lEvent;
 	callback.pfn = pfn;
@@ -143,21 +137,6 @@ DWORD CIPCSocket::IPCAttachEvent(IPC_EVENT lEvent, void* pfn, void* userdata)
 	callback.userdata = userdata;
 	m_mapMsg.insert(pair<DWORD, IPCCallback>(m_dwEventCookie, callback));
 	return m_dwEventCookie;
-	// 
-	// 	map<IPC_EVENT, unsigned int>::iterator iter = m_mapMsg.begin();
-	// 	for (;iter != m_mapMsg.end(); iter++)
-	// 	{
-	// 		if (lEvent == iter->first)
-	// 		{
-	// 			iter->second = wMsg;
-	// 			break;
-	// 		}
-	// 	}
-	// 	if (iter == m_mapMsg.end())
-	// 	{
-	// 		m_mapMsg.insert(pair<IPC_EVENT, unsigned int>(lEvent, wMsg));
-	// 	}
-	return 0;
 }
 
 
@@ -166,7 +145,7 @@ DWORD CIPCSocket::FireMessage(IPC_EVENT event, WPARAM wParam, LPARAM lParam)
 	
 	BOOL b = false;
 	map<DWORD, IPCCallback>::iterator iter = m_mapMsg.begin();
-	for (;iter != m_mapMsg.end(); iter++)
+	for (;iter != m_mapMsg.end(); ++iter)
 	{
 		if (event == iter->second.ipcEvent)
 		{

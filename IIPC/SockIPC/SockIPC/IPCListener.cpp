@@ -19,7 +19,6 @@ DWORD CIPCListener::IPCBind(IPCAddress& addr)
 {
 	
 	m_addrSrc.dwPort = addr.dwPort;
-	TSDEBUG(L"%s %ld %ld", __FUNCTIONW__, m_addrSrc.dwPid, m_addrSrc.dwPort);
 	TCHAR ch[255];
 	_stprintf_s(ch, _T("IPC_MEM_%d_%d"), m_addrSrc.dwPid, m_addrSrc.dwPort);
 	HANDLE hHandle = OpenFileMapping(FILE_MAP_ALL_ACCESS, false, ch);
@@ -27,7 +26,6 @@ DWORD CIPCListener::IPCBind(IPCAddress& addr)
 	{
 		return 1;
 	}
-	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 	m_hFileMap = CreateFileMapping(NULL, NULL, PAGE_READWRITE, 0, IPC_MEM_SIZE, ch);
 
 	return 0;
@@ -39,15 +37,12 @@ DWORD CIPCListener::IPCListen(DWORD dwMaxConn)
 	TCHAR ch[255];
 	_stprintf_s(ch, _T("IPC_WRITE_EVENT_%d_%d"), m_addrSrc.dwPid, m_addrSrc.dwPort);
 	m_hWriteEvent = CreateEvent(NULL, FALSE, FALSE, ch);
-	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 
 	_stprintf_s(ch, _T("IPC_READ_EVENT_%d_%d"), m_addrSrc.dwPid, m_addrSrc.dwPort);
 	m_hReadEvent = CreateEvent(NULL, FALSE, FALSE, ch);
-	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 
 	_stprintf_s(ch, _T("IPC_BUSY_EVENT_%d_%d"), m_addrSrc.dwPid, m_addrSrc.dwPort);
 	m_hBusyEvent = CreateEvent(NULL, FALSE, TRUE, ch);
-	TSDEBUG(L"%s %s", __FUNCTIONW__, ch);
 	
 	CIPCEnv::Instance()->AttachSocketEvent(this);
 
@@ -138,7 +133,6 @@ DWORD CIPCListener::OnRecv()
 	CIPCConnection *pConn;
 	IPCAddress addr;
 	IPCAccept(&pConn, addr);
-	TSDEBUG(L"%s %ld %ld", __FUNCTIONW__, addr.dwPid, addr.dwPort);
 	if (pConn == NULL)
 	{
 		return 1;
