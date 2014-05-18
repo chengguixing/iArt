@@ -126,6 +126,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "typeid", "typeid\typeid.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ArgumentDeducation", "ArgumentDeducation\ArgumentDeducation.vcxproj", "{05953E38-BC68-4F9F-B4C6-1D52BD852399}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IPrivateHeap", "IPrivateHeap", "{BE0284B2-764D-4A99-BDF8-A017221316C1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrivateHeap", "PrivateHeap\PrivateHeap.vcxproj", "{5A74D2D1-A7E1-4692-A826-0CE657B79725}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -232,6 +236,10 @@ Global
 		{05953E38-BC68-4F9F-B4C6-1D52BD852399}.Debug|Win32.Build.0 = Debug|Win32
 		{05953E38-BC68-4F9F-B4C6-1D52BD852399}.Release|Win32.ActiveCfg = Release|Win32
 		{05953E38-BC68-4F9F-B4C6-1D52BD852399}.Release|Win32.Build.0 = Release|Win32
+		{5A74D2D1-A7E1-4692-A826-0CE657B79725}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5A74D2D1-A7E1-4692-A826-0CE657B79725}.Debug|Win32.Build.0 = Debug|Win32
+		{5A74D2D1-A7E1-4692-A826-0CE657B79725}.Release|Win32.ActiveCfg = Release|Win32
+		{5A74D2D1-A7E1-4692-A826-0CE657B79725}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -265,5 +273,6 @@ Global
 		{1E630F52-3818-4735-9A9C-8A827D3516BA} = {CAFA70B1-FB5C-4AB5-A385-697C1B33B9A6}
 		{FA048B09-E754-4836-91B3-430BFF5C5FC6} = {CAFA70B1-FB5C-4AB5-A385-697C1B33B9A6}
 		{782C1094-3AC0-4F9D-9A39-921F0A4FDEFB} = {AA13B89C-1EE3-425B-952E-58CB4D554F10}
+		{5A74D2D1-A7E1-4692-A826-0CE657B79725} = {BE0284B2-764D-4A99-BDF8-A017221316C1}
 	EndGlobalSection
 EndGlobal
