@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'ATLTest'
+		'ATLTest.EXE'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}
