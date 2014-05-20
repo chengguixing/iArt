@@ -265,6 +265,7 @@ public:
 public:
 	TItemList(CItemPool& pool) : itPool(pool)
 	{
+		
 	}
 
 private:
