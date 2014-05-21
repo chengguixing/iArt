@@ -132,6 +132,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PrivateHeap", "PrivateHeap\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WinHttpTimeToSystemTime", "WinHttpTimeToSystemTime\WinHttpTimeToSystemTime.vcxproj", "{762F6595-9F00-4E6E-A02F-BC5C35D3CF22}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IEncDec", "IEncDec", "{244151E5-8C9F-4DC9-BAA9-2EF4842C1672}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DigitalSignature", "DigitalSignature\DigitalSignature.vcxproj", "{6BEE3714-9FDF-488C-B1A1-504F761932DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -246,6 +250,10 @@ Global
 		{762F6595-9F00-4E6E-A02F-BC5C35D3CF22}.Debug|Win32.Build.0 = Debug|Win32
 		{762F6595-9F00-4E6E-A02F-BC5C35D3CF22}.Release|Win32.ActiveCfg = Release|Win32
 		{762F6595-9F00-4E6E-A02F-BC5C35D3CF22}.Release|Win32.Build.0 = Release|Win32
+		{6BEE3714-9FDF-488C-B1A1-504F761932DC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6BEE3714-9FDF-488C-B1A1-504F761932DC}.Debug|Win32.Build.0 = Debug|Win32
+		{6BEE3714-9FDF-488C-B1A1-504F761932DC}.Release|Win32.ActiveCfg = Release|Win32
+		{6BEE3714-9FDF-488C-B1A1-504F761932DC}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -281,5 +289,6 @@ Global
 		{FA048B09-E754-4836-91B3-430BFF5C5FC6} = {CAFA70B1-FB5C-4AB5-A385-697C1B33B9A6}
 		{782C1094-3AC0-4F9D-9A39-921F0A4FDEFB} = {AA13B89C-1EE3-425B-952E-58CB4D554F10}
 		{5A74D2D1-A7E1-4692-A826-0CE657B79725} = {BE0284B2-764D-4A99-BDF8-A017221316C1}
+		{6BEE3714-9FDF-488C-B1A1-504F761932DC} = {244151E5-8C9F-4DC9-BAA9-2EF4842C1672}
 	EndGlobalSection
 EndGlobal
