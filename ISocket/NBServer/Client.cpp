@@ -1,5 +1,6 @@
 #include "Client.h"
 #include<stdio.h>
+#include "tslog/tslog.h"
 
 
 CClient::CClient(const SOCKET sClient, const sockaddr_in& addrClient)
