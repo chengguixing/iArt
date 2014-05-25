@@ -1970,7 +1970,7 @@ void CTSLog::OutputLog(TLevel level, LPCTSTR pszFormat, va_list ap, LPCTSTR pszL
 	{
 		typedef long (__stdcall *LPXLUE_GetLuaStack)(void*, char*, int);
 		LPXLUE_GetLuaStack lpGetLuaStack = NULL;
-		HMODULE hModule = ::GetModuleHandle(L"XLUE.dll");
+		HMODULE hModule = ::GetModuleHandle(_T("XLUE.dll"));
 		if (hModule != NULL)
 		{
 			lpGetLuaStack = (LPXLUE_GetLuaStack)::GetProcAddress(hModule, "XLUE_GetLuaStack");
