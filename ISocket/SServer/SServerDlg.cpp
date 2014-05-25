@@ -7,6 +7,7 @@
 #include "SServerDlg.h"
 #include "afxdialogex.h"
 #include "Client.h"
+#include "tslog/tslog.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -200,7 +201,8 @@ void CSServerDlg::OnButtonStartup()
 
 
 	reVal = listen(m_sServer, SOMAXCONN);
-	if (SOCKET_ERROR == reVal);
+	TSDEBUG("WSAGetLastError() = %d", WSAGetLastError());
+	if (SOCKET_ERROR == reVal)
 	{
 		AfxMessageBox(_T("·þÎñÆ÷¼àÌýÊ§°Ü!"), MB_OK, 0);
 		closesocket(m_sServer);
