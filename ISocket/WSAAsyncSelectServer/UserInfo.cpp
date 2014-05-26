@@ -8,7 +8,7 @@ m_time
 
 
 // CUserInfo
-
+IMPLEMENT_SERIAL(CUserInfo, CObject, 1)//new一个对象然后调用默认构造函数->init
 CUserInfo::CUserInfo()
 {
 }

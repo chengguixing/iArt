@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "resource.h"
 class CListenSocket;
 class CClientSocket;
 
@@ -37,21 +38,21 @@ protected:
 	void InitListCtrlSetting(void);
 	void InitUserList(void);
 
-	void SaveUserList(CObject& obList);
-	void LoadUserList(CObject& obList);
+	void SaveUserList(CObList& obList);
+	void LoadUserList(CObList& obList);
 
-	void SaveOfflineMsg(CObject& obList);
-	void LoadOfflineMsg(CObject& obList);
+	void SaveOfflineMsg(CObList& obList);
+	void LoadOfflineMsg(CObList& obList);
 
 
 	void SendUserList(void);
-	void CopyUserList(CObject& obList);
-	void DeleteTempUserList(CObject& obList);
+	void CopyUserList(CObList& obList);
+	void DeleteTempUserList(CObList& obList);
 
 
 	BOOL UpdateUserList(const CUserInfo& userInfo, CClientSocket* pClientSocket);
 	void TransmitMsg(const CChatPacket& packet, CClientSocket* pClientSocket);
-	void UpdateServerListCtl(const CObject& obList);
+	void UpdateServerListCtl(const CObList& obList);
 
 
 // й╣ож
@@ -62,19 +63,20 @@ protected:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
+	afx_msg void OnDestroy();
+	afx_msg void OnRclickClientList(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnServerListDeleteMenuitem();
 	DECLARE_MESSAGE_MAP()
 
 
 	CListenSocket* m_pListenSocket;
 	CImageList* m_pImageList;
 
-	CObject m_UserList;
-	CObject m_OfflineMsgList;
-	CObject m_ChatterList;
+	CObList m_UserList;
+	CObList m_OfflineMsgList;
+	CObList m_ChatterList;
 
 	CCriticalSection m_csUserList;
 	CCriticalSection m_csOfflineList;
 	CCriticalSection m_csChatterList;
-public:
-	afx_msg void OnDestroy();
 };

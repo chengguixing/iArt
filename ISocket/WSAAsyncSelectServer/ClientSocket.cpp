@@ -2,7 +2,7 @@
 //
 
 #include "stdafx.h"
-#include "WSAAsyncSelectServer.h"
+#include "WSAAsyncSelectServerDlg.h"
 #include "ClientSocket.h"
 
 
@@ -36,7 +36,6 @@ void CClientSocket::OnReceive(int nErrorCode)
 	CArchive* pArchiveIn = new CArchive(m_pFile, CArchive::load);
 	CArchive* pArchiveOut = new CArchive(m_pFile, CArchive::store);
 	BOOL reVal = m_pServDlg->ProcessPendingRead(pArchiveIn, pArchiveOut, this);
-
 	delete pArchiveIn;
 	pArchiveIn = NULL;
 	delete pArchiveOut;
@@ -60,7 +59,7 @@ void CClientSocket::OnClose(int nErrorCode)
 }
 
 
-void CClientSocket::SendUserList(CChatPacket* CChatPacket* pPacket)
+void CClientSocket::SendUserList(CChatPacket*  pPacket)
 {
 	CArchive* pArchiveOut = new CArchive(m_pFile, CArchive::store);
 	pPacket->Serialize(*pArchiveOut);
@@ -70,7 +69,7 @@ void CClientSocket::SendUserList(CChatPacket* CChatPacket* pPacket)
 }
 void CClientSocket::SendUserMsg(CChatPacket* pPacket)
 {
-	CArchive* pArchiveOut = new CArchive(m_pFile, CArchiv::store);
+	CArchive* pArchiveOut = new CArchive(m_pFile, CArchive::store);
 	pPacket->Serialize(*pArchiveOut);
 	pArchiveOut->Flush();
 

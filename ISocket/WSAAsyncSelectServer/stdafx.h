@@ -37,9 +37,12 @@
 #include <afxsock.h>            // MFC 套接字扩展
 #include <afx.h>
 
-
+#include "UserInfo.h"
+#include "ChatPacket.h"
 #define SERVERPORT 5558
-
+#define MAX_MSG_SIZE		128						//发送消息的最大长度
+#define USERLISTINI "userlist.ini"
+#define	OFFLINEMSGLIST		"offlinemsglist.ini"
 
 
 

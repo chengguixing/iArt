@@ -77,6 +77,12 @@ BOOL CWSAAsyncSelectServerApp::InitInstance()
 	SetRegistryKey(_T("应用程序向导生成的本地应用程序"));
 
 	CWSAAsyncSelectServerDlg dlg;
+	if (!dlg.StartService())
+	{
+		AfxMessageBox(_T("启动服务器失败!"), MB_OK, -1);
+		return FALSE;
+	}
+
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)
