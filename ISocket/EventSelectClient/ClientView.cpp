@@ -791,7 +791,9 @@ void CClientView::ResetCoords()
 	for(int i = 0; i < DIVISIONS; i++)
 	{
 		for(int j = 0; j < DIVISIONS; j++)
+		{
 			m_nCoords[i][j] = 0;
+		}
 	}
 	//更新界面
  	Invalidate(TRUE);
