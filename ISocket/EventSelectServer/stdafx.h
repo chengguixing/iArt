@@ -41,8 +41,18 @@
 #include <afxmt.h>
 #pragma comment(lib, "ws2_32.lib")
 
-#define		SERVERPORT			5559						//服务器端口
+#define SERVMESSAGE 200
+#define USERINFOR 201
 
+#define WM_USER_ACCEPT (WM_USER + 200)
+#define WM_USER_READ (WM_USER + 201)
+#define WM_USER_CLOSE (WM_USER + 202)
+
+#define		SERVERPORT			5559						//服务器端口
+#define MAX_NUM_EVENTS WSA_MAXIMUM_WAIT_EVENTS
+#define SERVER_WAIT_TIMEOUT 100
+
+#define CLIENTPACKETLEN (sizeof(CLIENTPACKET))
 #define		PACKETHDRLEN		(sizeof(PACKETHDR))			//包头长度
 
 
@@ -52,6 +62,17 @@ typedef struct _packethdr
 	u_short	type;	//类型
 	u_short	len;	//数据包长度(包体)
 }PACKETHDR, *PPACKETHDR;
+
+
+typedef struct _threadparam
+{
+	HWND hServHwnd;
+	BOOL* bRunning;
+	WORD* pTotalEvent;
+	WSAEVENT* pArrEvent;
+	SOCKET* pArrSocket;
+	HANDLE hEventExit;
+}THREADPARAM, *PTHREADPARAM;
 
 
 

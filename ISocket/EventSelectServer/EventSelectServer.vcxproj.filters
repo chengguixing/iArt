@@ -77,5 +77,23 @@
     <Image Include="res\EventSelectServer.ico">
       <Filter>资源文件</Filter>
     </Image>
+    <Image Include="res\chatter1.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\Duck.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon1.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon2.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\icon3.ico">
+      <Filter>资源文件</Filter>
+    </Image>
+    <Image Include="res\ico00001.ico">
+      <Filter>资源文件</Filter>
+    </Image>
   </ItemGroup>
 </Project>

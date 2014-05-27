@@ -134,7 +134,13 @@
     <None Include="res\EventSelectServer.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\chatter1.ico" />
+    <Image Include="res\Duck.ico" />
     <Image Include="res\EventSelectServer.ico" />
+    <Image Include="res\ico00001.ico" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="res\icon2.ico" />
+    <Image Include="res\icon3.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

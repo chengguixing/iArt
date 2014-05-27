@@ -34,7 +34,7 @@ BOOL CServerAddrDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
-	m_ctlServIP.SetAddress(192, 168, 106, 77);
+	m_ctlServIP.SetAddress(192, 168, 1, 166);
 	CString strServIP;
 	strServIP.Format(TEXT("%d"), SERVERPORT);
 	m_ctlServPort.SetWindowText(strServIP);

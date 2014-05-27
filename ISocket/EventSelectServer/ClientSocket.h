@@ -2,8 +2,11 @@
 #include "afx.h"
 #include "EventSelectServerDlg.h"
 #include "UserInfo.h"
-class CClientSocket :
-	public CObject
+
+
+class CEventSelectServerDlg;
+
+class CClientSocket : public CObject
 {
 public:
 	CClientSocket(CEventSelectServerDlg* pServDlg, SOCKET s, WSAEVENT hEvent);
