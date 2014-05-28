@@ -238,7 +238,7 @@ void COverLapClientDlg::OnLookupButton()
 	if (NULL != m_pLookupSocket)
 	{
 		CString strWord;
-		m_ctlWord.GetWindowTextLengthW(strWord);
+		m_ctlWord.GetWindowText(strWord);
 
 		if (strWord.IsEmpty())
 		{
@@ -307,7 +307,7 @@ DWORD WINAPI COverLapClientDlg::WorkerThread(void* pParam)
 		ASSERT(NULL != pIO);
 
 
-		BOOL bRet = WSAGetOverlappedResult(pClientDlg->m_sHost, pIO, &dwBytesTraned, TRUE, &dwFlags)
+		BOOL bRet = WSAGetOverlappedResult(pClientDlg->m_sHost, pIO, &dwBytesTraned, TRUE, &dwFlags);
 		if (bRet == FALSE || dwBytesTraned == 0)
 		{
 			return -1;
@@ -358,7 +358,7 @@ void COverLapClientDlg::ShowMeaning( TCHAR *pMeaning )
 	//解析字符串
 	CString meaning1;					//第一个含义
 	CString meaning2;					//第二个含义
-	int nIndex = strMeaning.Find(">");
+	int nIndex = strMeaning.Find(TEXT(">"));
 	if (-1 == nIndex)
 	{
 		return;
@@ -370,14 +370,14 @@ void COverLapClientDlg::ShowMeaning( TCHAR *pMeaning )
 	CString meaning;			//显示含义字符串
 	if (!meaning2.IsEmpty())	//第二个含义不为空
 	{
-		meaning ="◇ " +
+		meaning =TEXT("◇ ") +
 			meaning1 +
 			"\r\n"	+		//换行
 			"◇ " +
 			meaning2;
 	}else						//第二个含义为空
 	{
-		meaning ="◇ " +
+		meaning =TEXT("◇ ") +
 			meaning1;
 	}
 

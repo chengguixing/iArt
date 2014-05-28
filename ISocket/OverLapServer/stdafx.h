@@ -35,25 +35,6 @@
 
 
 
-#include "winsock2.h"
-#pragma comment(lib, "ws2_32.lib")
-#define HEADERLEN (sizeof(PACKETHDR))
-#define MAX_WAIT_EVENTS WSA_MAXIMUM_WAIT_EVENTS
-#define SERVERPORT 5560
-#define MAX_SIZE_BUF 1024
-#define THREAD_SLEEP_TIME 100
-#define ETOC 0
-#define CTOE 1
-
-
-typedef struct _packethdr
-{
-	u_short type;
-	u_short len;
-}PACKETHDR, *PPACKETHDR;
-
-
-
 
 
 

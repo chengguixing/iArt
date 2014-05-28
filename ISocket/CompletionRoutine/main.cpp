@@ -76,7 +76,7 @@ DWORD WINAPI WorkerThread(LPVOID lpParam)
 				CompletionRoutine); 
 			g_bNewConnectionArrived = FALSE; 
 		} 
-		SleepEx(1000,TRUE); 
+		SleepEx(1000, TRUE); 
 	} 
 	return 0; 
 } 

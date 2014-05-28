@@ -2,13 +2,13 @@
 #include "afx.h"
 
 
-class CClientDlg;
+class COverLapClientDlg;
 
 class CLookupSocket :
 	public CObject
 {
 public:
-	CLookupSocket(CClientDlg* pDlg, SOCKET s, WSAEVENT hEventOut, WSAEVENT hEventIn);
+	CLookupSocket(COverLapClientDlg* pDlg, SOCKET s, WSAEVENT hEventOut, WSAEVENT hEventIn);
 	~CLookupSocket(void);
 
 
@@ -32,7 +32,7 @@ public:
 
 
 protected:
-	CClientDlg* m_pClientDlg;
+	COverLapClientDlg* m_pClientDlg;
 	SOCKET m_s;
 	CString m_strWord;
 	CString m_StrMeaning;

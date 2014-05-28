@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3C7EEE4D-6D50-45B3-B52C-79C2E5602248}</ProjectGuid>
-    <RootNamespace>OverLapClient</RootNamespace>
+    <ProjectGuid>{7EEF87A0-E67E-4E40-B7AE-A05EA6475B94}</ProjectGuid>
+    <RootNamespace>OverLapServer</RootNamespace>
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -107,37 +107,36 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LookupSocket.h" />
-    <ClInclude Include="OverLapClient.h" />
-    <ClInclude Include="OverLapClientDlg.h" />
+    <ClInclude Include="MainFrm.h" />
+    <ClInclude Include="OverLapServer.h" />
+    <ClInclude Include="OverLapServerDoc.h" />
+    <ClInclude Include="OverLapServerView.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="LookupSocket.cpp" />
-    <ClCompile Include="OverLapClient.cpp" />
-    <ClCompile Include="OverLapClientDlg.cpp" />
+    <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="OverLapServer.cpp" />
+    <ClCompile Include="OverLapServerDoc.cpp" />
+    <ClCompile Include="OverLapServerView.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="OverLapClient.rc" />
+    <ResourceCompile Include="OverLapServer.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\OverLapClient.rc2" />
+    <None Include="res\OverLapServer.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="res\OverLapClient.ico" />
+    <Image Include="res\OverLapServer.ico" />
+    <Image Include="res\OverLapServerDoc.ico" />
+    <Image Include="res\Toolbar.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties RESOURCE_FILE="OverLapClient.rc" />
-    </VisualStudio>
-  </ProjectExtensions>
 </Project>

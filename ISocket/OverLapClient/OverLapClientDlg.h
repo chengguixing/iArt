@@ -6,6 +6,7 @@
 #include "afxcmn.h"
 #include "afxwin.h"
 #include "LookupSocket.h"
+#include "resource.h"
 
 
 // COverLapClientDlg ¶Ô»°¿ò
@@ -62,6 +63,5 @@ public:
 	CEdit m_ctlMeaning;
 	short m_sServPort;
 
-	afx_msg void OnConnectButton();
 	afx_msg void OnLookupButton();
 };

@@ -3,7 +3,7 @@
 #include "OverLapClientDlg.h"
 
 
-CLookupSocket::CLookupSocket(CClientDlg* pDlg, SOCKET s, WSAEVENT hEventOut, WSAEVENT hEventIn)
+CLookupSocket::CLookupSocket(COverLapClientDlg* pDlg, SOCKET s, WSAEVENT hEventOut, WSAEVENT hEventIn)
 {
 	m_pClientDlg = pDlg;
 	m_s = s;
@@ -27,7 +27,7 @@ CLookupSocket::~CLookupSocket(void)
 
 void CLookupSocket::HandleData(void)
 {
-	if (m_hdrRecv->len != 0)
+	if (m_hdrRecv.len != 0)
 	{
 		RecvPacket();
 		ZeroMemory(&m_hdrRecv, HEADERLEN);
@@ -129,8 +129,8 @@ BOOL CLookupSocket::RecvPacket(void)
 	m_StrMeaning.Empty();
 
 	WSABUF wsaRecv;
-	wsaRecv.buf = (char*)m_StrMeaning.GetBuffer(m_hdrRecv->len);
-	wsaRecv.len = m_hdrRecv->len;
+	wsaRecv.buf = (char*)m_StrMeaning.GetBuffer(m_hdrRecv.len);
+	wsaRecv.len = m_hdrRecv.len;
 
 
 	if (SOCKET_ERROR == WSARecv(m_s, &wsaRecv, 1, &dwBytesRecved, &dwFlags, &m_iIO, NULL))
