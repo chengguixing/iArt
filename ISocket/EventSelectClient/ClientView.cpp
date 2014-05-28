@@ -425,7 +425,7 @@ BOOL CClientView::ConnectServer( void )
 		return FALSE;
 
 	m_pServerSocket = new CServerSocket(this, m_sServer, m_arrEvent[m_nTotalEvent]);
-	m_nTotalEvent++;//套接字事件对象加1
+	++m_nTotalEvent;//套接字事件对象加1
 	return TRUE;
 }
 

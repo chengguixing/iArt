@@ -1,4 +1,6 @@
 #pragma once
+
+
 #include "stdafx.h"
 #include "resource.h"
 #include "Client.h"
@@ -13,7 +15,7 @@
 
 class CClientDoc;
 
-class CMidi;class CClientView : public CView
+class CClientView : public CView
 {
 protected: // create from serialization only
 	CClientView();

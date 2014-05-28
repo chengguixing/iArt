@@ -21,7 +21,7 @@ CServerSocket::~CServerSocket()
 /*
  * 发送数据
  */
-BOOL CServerSocket::Send(const u_short type, const CString strData )
+BOOL CServerSocket::Send(const u_short type, const CString strData)
 {
 	int			nErrCode;	//返回值	
 	PACKETHDR	packetHdr;	//定义包头
@@ -110,11 +110,13 @@ BOOL CServerSocket::RecvMessage( int nMessageLen )
 			}
 			AfxMessageBox(_T("读取客户端数据失败！"));
 			return FALSE;
-		}else if (0 == nReadLen)
+		}
+		else if (0 == nReadLen)
 		{
 			AfxMessageBox(_T("服务器关闭了连接！"));
 			return	FALSE;
-		}else if (nReadLen > 0)
+		}
+		else if (nReadLen > 0)
 		{
 			strMsg += cRecv;		
 			nTotalLen += nReadLen;

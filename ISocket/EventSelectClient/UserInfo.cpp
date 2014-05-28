@@ -4,6 +4,7 @@
 
 CUserInfo::CUserInfo(void) : m_strName(""), m_lIP(0), m_uPort(0), m_state(UNKNOWN)
 {
+
 }
 
 CUserInfo::CUserInfo(const CUserInfo& userInfo)
@@ -18,6 +19,7 @@ CUserInfo::CUserInfo(const CUserInfo& userInfo)
 
 CUserInfo::~CUserInfo(void)
 {
+
 }
 
 CUserInfo& CUserInfo::operator= (const CUserInfo& userInfo)

@@ -17,7 +17,7 @@ public:
 	};
 
 public:
-	CUserInfo& operator= (consts CUserInfo& userInfo);
+	CUserInfo& operator= (const CUserInfo& userInfo);
 
 public:
 	CString m_strName;
