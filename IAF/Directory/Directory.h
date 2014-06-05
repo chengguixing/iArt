@@ -13,6 +13,7 @@ namespace IAF
 		static const int BUFSIZE = 1024; 
 	public:
 		static void GetRootDirectory(std::wstring& strRootDirectory);
+		static bool DeleteFileOrDirectory(std::string const& str);
 	};
 
 }
