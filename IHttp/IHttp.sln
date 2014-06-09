@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HttpSendRequestEx", "HttpSendRequestEx\HttpSendRequestEx.vcxproj", "{6FCDE427-25C7-4941-9FD7-9022163AF6EF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FCDE427-25C7-4941-9FD7-9022163AF6EF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6FCDE427-25C7-4941-9FD7-9022163AF6EF}.Debug|Win32.Build.0 = Debug|Win32
+		{6FCDE427-25C7-4941-9FD7-9022163AF6EF}.Release|Win32.ActiveCfg = Release|Win32
+		{6FCDE427-25C7-4941-9FD7-9022163AF6EF}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
