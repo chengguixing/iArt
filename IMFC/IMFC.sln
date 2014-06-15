@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CArchive", "CArchive\CArchive.vcxproj", "{01FE08D5-FEE9-4224-8844-3CA678E49F5D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fibo", "Fibo\Fibo.vcxproj", "{91D445BA-092B-4C54-A2A3-32D933A4FEBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{01FE08D5-FEE9-4224-8844-3CA678E49F5D}.Debug|Win32.Build.0 = Debug|Win32
 		{01FE08D5-FEE9-4224-8844-3CA678E49F5D}.Release|Win32.ActiveCfg = Release|Win32
 		{01FE08D5-FEE9-4224-8844-3CA678E49F5D}.Release|Win32.Build.0 = Release|Win32
+		{91D445BA-092B-4C54-A2A3-32D933A4FEBC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{91D445BA-092B-4C54-A2A3-32D933A4FEBC}.Debug|Win32.Build.0 = Debug|Win32
+		{91D445BA-092B-4C54-A2A3-32D933A4FEBC}.Release|Win32.ActiveCfg = Release|Win32
+		{91D445BA-092B-4C54-A2A3-32D933A4FEBC}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
