@@ -9,6 +9,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrameOne", "FrameOne\FrameO
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrameTwo", "FrameTwo\FrameTwo.vcxproj", "{BD4147EB-A4A5-40D8-8FAD-4283D19380D7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CRuntimeClass", "CRuntimeClass\CRuntimeClass.vcxproj", "{17669942-CBA0-4428-B1CE-F44E10642A91}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrameThree", "FrameThree\FrameThree.vcxproj", "{EAF56CE5-2BFD-46A6-88D0-36A9B5F9ED08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -31,6 +35,14 @@ Global
 		{BD4147EB-A4A5-40D8-8FAD-4283D19380D7}.Debug|Win32.Build.0 = Debug|Win32
 		{BD4147EB-A4A5-40D8-8FAD-4283D19380D7}.Release|Win32.ActiveCfg = Release|Win32
 		{BD4147EB-A4A5-40D8-8FAD-4283D19380D7}.Release|Win32.Build.0 = Release|Win32
+		{17669942-CBA0-4428-B1CE-F44E10642A91}.Debug|Win32.ActiveCfg = Debug|Win32
+		{17669942-CBA0-4428-B1CE-F44E10642A91}.Debug|Win32.Build.0 = Debug|Win32
+		{17669942-CBA0-4428-B1CE-F44E10642A91}.Release|Win32.ActiveCfg = Release|Win32
+		{17669942-CBA0-4428-B1CE-F44E10642A91}.Release|Win32.Build.0 = Release|Win32
+		{EAF56CE5-2BFD-46A6-88D0-36A9B5F9ED08}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EAF56CE5-2BFD-46A6-88D0-36A9B5F9ED08}.Debug|Win32.Build.0 = Debug|Win32
+		{EAF56CE5-2BFD-46A6-88D0-36A9B5F9ED08}.Release|Win32.ActiveCfg = Release|Win32
+		{EAF56CE5-2BFD-46A6-88D0-36A9B5F9ED08}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
