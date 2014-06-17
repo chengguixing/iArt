@@ -168,6 +168,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "APC", "APC\APC.vcxproj", "{
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "VirtualInherit", "VirtualInherit\VirtualInherit.vcxproj", "{9FEB663C-3543-4844-AE85-008F806FA409}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IVirtual", "IVirtual\IVirtual.vcxproj", "{0C5217D7-EDBC-4285-A42F-07E7FEDB9504}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -330,6 +332,10 @@ Global
 		{9FEB663C-3543-4844-AE85-008F806FA409}.Debug|Win32.Build.0 = Debug|Win32
 		{9FEB663C-3543-4844-AE85-008F806FA409}.Release|Win32.ActiveCfg = Release|Win32
 		{9FEB663C-3543-4844-AE85-008F806FA409}.Release|Win32.Build.0 = Release|Win32
+		{0C5217D7-EDBC-4285-A42F-07E7FEDB9504}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0C5217D7-EDBC-4285-A42F-07E7FEDB9504}.Debug|Win32.Build.0 = Debug|Win32
+		{0C5217D7-EDBC-4285-A42F-07E7FEDB9504}.Release|Win32.ActiveCfg = Release|Win32
+		{0C5217D7-EDBC-4285-A42F-07E7FEDB9504}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
