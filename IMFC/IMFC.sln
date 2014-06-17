@@ -13,6 +13,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CRuntimeClass", "CRuntimeCl
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrameThree", "FrameThree\FrameThree.vcxproj", "{EAF56CE5-2BFD-46A6-88D0-36A9B5F9ED08}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrameFour", "FrameFour\FrameFour.vcxproj", "{39A0E348-C321-4B6D-91AA-AA6A7D33FF45}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrameFive", "FrameFive\FrameFive.vcxproj", "{D73F7312-2D2C-43FC-A407-A90ABDFE86B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -43,6 +47,14 @@ Global
 		{EAF56CE5-2BFD-46A6-88D0-36A9B5F9ED08}.Debug|Win32.Build.0 = Debug|Win32
 		{EAF56CE5-2BFD-46A6-88D0-36A9B5F9ED08}.Release|Win32.ActiveCfg = Release|Win32
 		{EAF56CE5-2BFD-46A6-88D0-36A9B5F9ED08}.Release|Win32.Build.0 = Release|Win32
+		{39A0E348-C321-4B6D-91AA-AA6A7D33FF45}.Debug|Win32.ActiveCfg = Debug|Win32
+		{39A0E348-C321-4B6D-91AA-AA6A7D33FF45}.Debug|Win32.Build.0 = Debug|Win32
+		{39A0E348-C321-4B6D-91AA-AA6A7D33FF45}.Release|Win32.ActiveCfg = Release|Win32
+		{39A0E348-C321-4B6D-91AA-AA6A7D33FF45}.Release|Win32.Build.0 = Release|Win32
+		{D73F7312-2D2C-43FC-A407-A90ABDFE86B3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D73F7312-2D2C-43FC-A407-A90ABDFE86B3}.Debug|Win32.Build.0 = Debug|Win32
+		{D73F7312-2D2C-43FC-A407-A90ABDFE86B3}.Release|Win32.ActiveCfg = Release|Win32
+		{D73F7312-2D2C-43FC-A407-A90ABDFE86B3}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
