@@ -21,10 +21,7 @@ public:
 class CMyFrameWnd : public CFrameWnd
 {
 public:
-	CMyFrameWnd()
-	{
-		;
-	}
+	CMyFrameWnd();
 	~CMyFrameWnd()
 	{
 		;

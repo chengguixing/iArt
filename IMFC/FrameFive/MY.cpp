@@ -22,6 +22,10 @@ BEGIN_MESSAGE_MAP(CMyFrameWnd, CFrameWnd)
 	ON_COMMAND(CMyFrameWndid, 0)
 END_MESSAGE_MAP()
 
+BEGIN_MESSAGE_MAP(CMyDoc, CDocument)
+	ON_COMMAND(CMyDocid, 0)
+END_MESSAGE_MAP()
+
 BEGIN_MESSAGE_MAP(CMyView, CView)
 	ON_COMMAND(CMyViewid, 0)
 END_MESSAGE_MAP()
@@ -71,7 +75,7 @@ int main(void)
 	CMyView* pMyView = new CMyView;
 	CFrameWnd* pMyFrame = (CFrameWnd*)pApp->m_pMainWnd;
 	pMyFrame->m_pViewActive = pMyView;
-	mMyView->m_pDocument = pMyDoc;
+	pMyView->m_pDocument = pMyDoc;
 
 
 	std::cout << std::endl << "pMyFrame received a WM_CREATE, routing path : " << std::endl;
@@ -84,4 +88,6 @@ int main(void)
 	AfxWndProc(0, WM_COMMAND, 0, 0, pMyFrame);
 
 
+	system("pause");
+	return 0;
 }
