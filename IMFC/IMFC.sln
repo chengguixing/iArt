@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrameFour", "FrameFour\Fram
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FrameFive", "FrameFive\FrameFive.vcxproj", "{D73F7312-2D2C-43FC-A407-A90ABDFE86B3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloMFC", "HelloMFC\HelloMFC.vcxproj", "{5E6264DB-EBB2-4B31-B23D-33286130D551}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -55,6 +57,10 @@ Global
 		{D73F7312-2D2C-43FC-A407-A90ABDFE86B3}.Debug|Win32.Build.0 = Debug|Win32
 		{D73F7312-2D2C-43FC-A407-A90ABDFE86B3}.Release|Win32.ActiveCfg = Release|Win32
 		{D73F7312-2D2C-43FC-A407-A90ABDFE86B3}.Release|Win32.Build.0 = Release|Win32
+		{5E6264DB-EBB2-4B31-B23D-33286130D551}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5E6264DB-EBB2-4B31-B23D-33286130D551}.Debug|Win32.Build.0 = Debug|Win32
+		{5E6264DB-EBB2-4B31-B23D-33286130D551}.Release|Win32.ActiveCfg = Release|Win32
+		{5E6264DB-EBB2-4B31-B23D-33286130D551}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
