@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloMFC", "HelloMFC\HelloM
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "transparent", "transparent\transparent.vcxproj", "{1128A86D-2D90-43ED-9773-051A31898430}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scribble", "Scribble\Scribble.vcxproj", "{12A7DBC4-0DA1-4A12-AA71-E14727C23FA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -67,6 +69,10 @@ Global
 		{1128A86D-2D90-43ED-9773-051A31898430}.Debug|Win32.Build.0 = Debug|Win32
 		{1128A86D-2D90-43ED-9773-051A31898430}.Release|Win32.ActiveCfg = Release|Win32
 		{1128A86D-2D90-43ED-9773-051A31898430}.Release|Win32.Build.0 = Release|Win32
+		{12A7DBC4-0DA1-4A12-AA71-E14727C23FA4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{12A7DBC4-0DA1-4A12-AA71-E14727C23FA4}.Debug|Win32.Build.0 = Debug|Win32
+		{12A7DBC4-0DA1-4A12-AA71-E14727C23FA4}.Release|Win32.ActiveCfg = Release|Win32
+		{12A7DBC4-0DA1-4A12-AA71-E14727C23FA4}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
