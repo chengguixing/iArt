@@ -18,18 +18,18 @@ public:
 	void Start();
 	void Stop();
 	void ReportServiceTime();
+
 public:
 	static StatTime& GetInstance()
 	{
 		static StatTime instance;
 		return instance;
 	}
-	enum{SECONDSINMINUTE = 60};
 
 private:
 	clock_t  begin;
 	clock_t  end;
-	int elapsedMinutes;
+	int elapsedSeconds;
 };
 
 #define StatTimeInstance StatTime::GetInstance()

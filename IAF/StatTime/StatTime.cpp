@@ -20,5 +20,5 @@ void StatTime::Stop()
 }
 void StatTime::ReportServiceTime()
 {
-	elapsedMinutes = static_cast<int>(static_cast<double>(end - begin) / CLOCKS_PER_SEC) / SECONDSINMINUTE;
+	elapsedSeconds = static_cast<int>(static_cast<double>(end - begin) / CLOCKS_PER_SEC);
 }

@@ -12,6 +12,8 @@ int main(void)
 		StatTimeInstance.Stop();
 	}
 
+	
+
 	system("pause");
 	return 0;
 }
