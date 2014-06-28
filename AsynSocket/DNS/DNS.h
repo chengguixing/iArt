@@ -1,15 +1,14 @@
 #ifndef _DNS_H_E37FBECC_B45B_4E52_89D0_CCFFAD7627AE
 #define _DNS_H_E37FBECC_B45B_4E52_89D0_CCFFAD7627AE
 
-#include <windows.h>
-#include <string>
+
 #include "DNSWorker.h"
 #include "DNSHelper.h"
 
 namespace DNS
 {
 	
-
+	/* DNS */
 	class DNS
 	{
 	private:

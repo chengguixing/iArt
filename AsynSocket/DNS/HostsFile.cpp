@@ -1,7 +1,7 @@
+#include "stdafx.h"
 #include <vector>
 
 
-#include <Winsock2.h>
 #pragma comment(lib, "Ws2_32.lib")
 
 
@@ -19,7 +19,7 @@ namespace DNS
 	{
 		NULL;
 	}
-	bool HostsFile::Query(std::string& const domain, std::string& ip)
+	bool HostsFile::Query(const std::string& domain, std::string& ip)
 	{
 		if (m_mapNameIp.find(domain) != m_mapNameIp.end())
 		{
@@ -33,7 +33,7 @@ namespace DNS
 		;
 	}
 
-	void HostsFile::ParseLine(std::string& const strLine)
+	void HostsFile::ParseLine(const std::string& strLine)
 	{
 		std::string strTemp(strLine);
 		std::string::size_type pos = strTemp.find_first_of("#");

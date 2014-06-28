@@ -1,4 +1,4 @@
-#include <windows.h>
+#include "stdafx.h"
 #include "DNSHelper.h"
 
 

@@ -1,4 +1,5 @@
-#include <assert.h>
+
+#include "stdafx.h"
 #include "DNS.h"
 
 namespace DNS
@@ -45,7 +46,6 @@ long DNS::AsynGetHostByName(const char* hostName,
 	lpData->m_userData = lpUserData;
 
 	std::string strHostName = hostName;
-	std::string strHostAddr;
 
 	m_worker.Request(strHostName, WorkerCallBack, lpData);
 	return 0;

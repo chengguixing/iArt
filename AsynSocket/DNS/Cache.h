@@ -1,13 +1,12 @@
 #ifndef _CACHE_H_BD18DF29_4D0E_42CF_8E01_5DA5D4E54B2B
 #define _CACHE_H_BD18DF29_4D0E_42CF_8E01_5DA5D4E54B2B
 
-#include <windows.h>
-#include <string>
 #include <hash_map>
 #include "DNSHelper.h"
 
 namespace DNS
 {
+	/* »º´æ */
 	class Cache
 	{
 	private:
@@ -23,9 +22,9 @@ namespace DNS
 		Cache();
 		~Cache();
 
-		bool AddCache(std::string& const hostName, std::string& hostAddr);
-		bool RemoveCache(std::string& const hostName);
-		bool QueryAddress(std::string const hostName, std::string& hostAddr);
+		bool AddCache(const std::string& hostName, std::string& hostAddr);
+		bool RemoveCache(const std::string& hostName);
+		bool QueryAddress(const std::string hostName, std::string& hostAddr);
 
 	private:
 		mapCache m_cache;

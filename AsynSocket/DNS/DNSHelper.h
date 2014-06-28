@@ -1,11 +1,11 @@
 #ifndef _DNSHELPER_H_6D8C44A1_EB64_47DB_8877_BDA9E4935876
 #define _DNSHELPER_H_6D8C44A1_EB64_47DB_8877_BDA9E4935876
 
-#include <string>
 #include <vector>
 
 namespace DNS
 {
+	/* Helper */
 	class DNSHelper
 	{
 	public:

@@ -1,5 +1,4 @@
-#include <assert.h>
-
+#include "stdafx.h"
 #include "DNSWorker.h"
 #include "DNS.h"
 

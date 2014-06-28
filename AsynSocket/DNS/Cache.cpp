@@ -1,5 +1,5 @@
 
-#include <assert.h>
+#include "stdafx.h"
 #include "Cache.h"
 namespace DNS
 {
@@ -14,7 +14,7 @@ namespace DNS
 		;
 	}
 
-	bool Cache::AddCache(std::string& const hostName, std::string& hostAddr)
+	bool Cache::AddCache(const std::string& hostName, std::string& hostAddr)
 	{
 		assert(!hostName.empty());
 		assert(!hostName.empty());
@@ -36,7 +36,7 @@ namespace DNS
 		}
 		return TRUE;
 	}
-	bool Cache::RemoveCache(std::string& const hostName)
+	bool Cache::RemoveCache(const std::string& hostName)
 	{
 		AutoCriticalSection autoLock(m_cs);
 
